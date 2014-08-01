@@ -45,12 +45,12 @@ class Board
     guess = CommandInterpreter.guess(guess)
     temp_board = colors
 
-    check = colors.zip(guess).map { |x, y| x == y }
+    @check = colors.zip(guess).map { |x, y| x == y }
     count = guess.count do |peg|
       temp_board.delete_at(temp_board.index(peg)) if temp_board.include?(peg)
     end
 
-    if check.count(true) == @board.size
+    if win?
       @guess_count += 1
       @finish_time = Time.now
 
@@ -59,9 +59,13 @@ class Board
     else
       @guess_count += 1
       puts colors
-      puts Messager.output("'#{guess.join.upcase}' has #{count} of the correct elements with #{check.count(true)} in the correct positions.")
+      puts Messager.output("'#{guess.join.upcase}' has #{count} of the correct elements with #{@check.count(true)} in the correct positions.")
     end
 
+  end
+
+  def win?
+    @check.count(true) == @board.size
   end
 
   def print_time_minutes

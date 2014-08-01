@@ -15,11 +15,11 @@ class Mastermind
     while board.win_check == false
       puts Messager.output("What's your guess? ")
       g_choice = gets.chomp
-      if g_choice != 'q'
-        board.check_guess(g_choice)
-      else
+      if g_choice == 'q' || g_choice == 'quit'
         puts Messager.output("Thanks for playing.")
         break
+      else
+        board.check_guess(g_choice)
       end
     end
     #play again?
