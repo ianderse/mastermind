@@ -14,7 +14,13 @@ class Mastermind
     puts Messager.output("(r)ed, (g)reen, (b)lue, and (y)ellow. Use (q)uit at any time to end the game.")
     while board.win_check == false
       puts Messager.output("What's your guess? ")
-      board.check_guess(gets.chomp)
+      g_choice = gets.chomp
+      if g_choice != 'q'
+        board.check_guess(g_choice)
+      else
+        puts Messager.output("Thanks for playing.")
+        break
+      end
     end
     #play again?
   end

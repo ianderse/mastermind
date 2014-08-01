@@ -43,8 +43,12 @@ class Board
 
   def check_guess(guess)
     guess = CommandInterpreter.guess(guess)
+    temp_board = colors
+
     check = colors.zip(guess).map { |x, y| x == y }
-    count = guess.count {|peg| colors.include?(peg) }
+    count = guess.count do |peg|
+      temp_board.delete_at(temp_board.index(peg)) if temp_board.include?(peg)
+    end
 
     if check.count(true) == @board.size
       @guess_count += 1
@@ -54,6 +58,7 @@ class Board
       @win_check = true
     else
       @guess_count += 1
+      puts colors
       puts Messager.output("'#{guess.join.upcase}' has #{count} of the correct elements with #{check.count(true)} in the correct positions.")
     end
 
