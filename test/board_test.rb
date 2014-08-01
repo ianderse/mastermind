@@ -82,4 +82,13 @@ class BoardTest < Minitest::Test
     assert_equal "test", board.colors
   end
 
+  def test_it_can_check_win
+    skip
+    board = Board.new(4)
+
+    board.check = [true, true, true, true]
+
+    assert_equal true, board.win?
+  end
+
 end
