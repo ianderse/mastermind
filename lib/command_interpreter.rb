@@ -6,12 +6,17 @@ module CommandInterpreter
   def self.guess(guess)
     valid_letters = 'rgby'
 
-    guess.downcase.split(//).each do |letter|
-      if valid_letters.include?(letter)
-        letter
-      else
-        return "invalid guess"
-        break
+    if guess == 'q' || guess == 'quit'
+      'q'
+    elsif guess.size > 4
+      return "invalid guess"
+    else
+      guess.downcase.split(//).each do |letter|
+        if valid_letters.include?(letter)
+          letter
+        else
+          return "invalid guess"
+        end
       end
     end
   end

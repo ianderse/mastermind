@@ -42,7 +42,6 @@ class Board
   end
 
   def check_guess(guess)
-    guess = CommandInterpreter.guess(guess)
     temp_board = colors
 
     @check = colors.zip(guess).map { |x, y| x == y }
