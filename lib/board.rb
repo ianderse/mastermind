@@ -23,7 +23,7 @@ class Board
 
   def create_board(size, peg)
     size.times do
-      @board << Peg.new(peg)
+      @board << Peg.new(randomized_peg)
     end
   end
 
