@@ -5,20 +5,25 @@ module CommandInterpreter
 
   def self.guess(guess)
     #refactoring to do here?
-    valid_letters = 'rgby'
 
     if guess == 'q' || guess == 'quit'
       'q'
     elsif guess.size > 4
       return "invalid guess"
     else
-      #what to use here besides .each
-      guess.downcase.split(//).each do |letter|
-        if valid_letters.include?(letter)
-          letter
-        else
-          return "invalid guess"
-        end
+      split_guess(guess)
+    end
+  end
+
+  def self.split_guess(guess)
+    #what to use here besides .each
+    valid_letters = 'rgby'
+    
+    guess.downcase.split(//).each do |letter|
+      if valid_letters.include?(letter)
+        letter
+      else
+        return "invalid guess"
       end
     end
   end

@@ -76,14 +76,3 @@ class Board
   end
 
 end
-
-if __FILE__ == $0
-  require_relative 'command_interpreter'
-
-  board = Board.new(4, 'r')
-
-  guess = CommandInterpreter.guess('rrrr')
-
-  board.check_guess(guess)
-
-end
