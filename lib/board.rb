@@ -37,12 +37,7 @@ class Board
   end
 
   def check_guess(guess)
-    temp_board = colors
-
-    @check = colors.zip(guess).map { |x, y| x == y }
-    count = guess.count do |peg|
-      temp_board.delete_at(temp_board.index(peg)) if temp_board.include?(peg)
-    end
+    @guess = guess
 
     if win?
       @guess_count += 1
@@ -52,14 +47,26 @@ class Board
       @win_check = true
     else
       @guess_count += 1
-      #puts colors
-      puts Messager.output("'#{guess.join.upcase}' has #{count} of the correct elements with #{@check.count(true)} in the correct positions.")
+      #puts colors #debug: show secret sequence
+      puts Messager.output("'#{guess.join.upcase}' has #{compare} of the correct elements with #{check.count(true)} in the correct positions.")
     end
 
   end
 
+  def compare
+    temp_board = colors
+
+    @guess.count do |peg|
+      temp_board.delete_at(temp_board.index(peg)) if temp_board.include?(peg)
+    end
+  end
+
+  def check
+    colors.zip(@guess).map { |x, y| x == y }
+  end
+
   def win?
-    @check.count(true) == @board.size
+    check.count(true) == @board.size
   end
 
   def print_time_minutes
