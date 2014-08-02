@@ -9,7 +9,6 @@ module Messager
   end
 
   def self.welcome
-    system "clear"
     "Welcome to MASTERMIND".colorize(:light_green)
   end
 
