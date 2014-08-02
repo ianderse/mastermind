@@ -4,11 +4,8 @@ class Peg
 
   attr_reader :color
 
-  def initialize
-    @color = randomized_peg
+  def initialize(color = ['r', 'y', 'b', 'g'].sample)
+    @color = color
   end
 
-  def randomized_peg
-    ['r', 'y', 'b', 'g'].sample
-  end
 end

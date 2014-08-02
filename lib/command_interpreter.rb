@@ -4,7 +4,6 @@ require_relative 'board'
 module CommandInterpreter
 
   def self.guess(guess)
-    #refactoring to do here?
 
     if guess == 'q' || guess == 'quit'
       'q'
@@ -13,10 +12,10 @@ module CommandInterpreter
     else
       split_guess(guess)
     end
+    
   end
 
   def self.split_guess(guess)
-    #what to use here besides .each
     valid_letters = 'rgby'
 
     guess.downcase.split(//).find_all do |letter|
