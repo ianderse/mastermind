@@ -18,14 +18,15 @@ module CommandInterpreter
   def self.split_guess(guess)
     #what to use here besides .each
     valid_letters = 'rgby'
-    
-    guess.downcase.split(//).each do |letter|
+
+    guess.downcase.split(//).find_all do |letter|
       if valid_letters.include?(letter)
         letter
       else
         return "invalid guess"
       end
     end
+
   end
 
   def self.menu(choice)
