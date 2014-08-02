@@ -40,11 +40,11 @@ class Board
       @guess_count += 1
       @finish_time = Time.now
 
-      puts Messager.output("Congratulations! You guessed the sequence '#{colors.color_array.join.upcase}' in #{@guess_count} guesses over #{print_time_minutes} minutes and #{print_time_seconds} seconds")
+      puts Messager.output("Congratulations! You guessed the sequence '#{colors.join.upcase}' in #{@guess_count} guesses over #{print_time_minutes} minutes and #{print_time_seconds} seconds")
       @win_check = true
     else
       @guess_count += 1
-      #puts colors #debug: show secret sequence
+      puts colors #debug: show secret sequence
       puts Messager.output("'#{guess.join.upcase}' has #{compare} of the correct elements with #{check.count(true)} in the correct positions.\nYou've taken #{@guess_count} guesses.")
     end
 
