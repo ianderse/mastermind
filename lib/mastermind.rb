@@ -1,6 +1,10 @@
 require_relative 'messager'
 require_relative 'command_interpreter'
 
+#extensions:
+#ability to use bundle install for required gems
+#colorize
+
 class Mastermind
   def initialize
     system "clear"
