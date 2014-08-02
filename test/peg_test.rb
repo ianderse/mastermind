@@ -4,6 +4,8 @@ require './lib/peg'
 
 class PegTest < Minitest::Test
 
+  #these tests are now obsolete after refactoring
+
   def test_it_can_create_a_red_peg
 
     red_peg = Peg.new("r")
@@ -29,6 +31,15 @@ class PegTest < Minitest::Test
 
     green_peg = Peg.new("g")
     assert_equal "g", green_peg.color
+
+  end
+
+  def test_it_randomizes_peg_colors
+    skip
+
+    Peg = Peg.new
+
+    assert_equal ['r', 'y', 'b', 'g'].sample, peg.randomized_peg
 
   end
 

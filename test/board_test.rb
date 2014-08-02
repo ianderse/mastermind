@@ -6,7 +6,6 @@ require './lib/command_interpreter'
 
 class BoardTest < Minitest::Test
 
-  # include Messager
   include CommandInterpreter
 
   def test_it_can_create_an_array_of_one_peg
@@ -26,15 +25,6 @@ class BoardTest < Minitest::Test
     board = Board.new(requested_size)
 
     assert_equal 4, board.size
-
-  end
-
-  def test_it_randomizes_peg_colors
-    skip
-
-    board = Board.new(1)
-
-    assert_equal ['r', 'y', 'b', 'g'].sample, board.randomized_peg
 
   end
 

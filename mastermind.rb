@@ -10,6 +10,7 @@ class Mastermind
   def menu
     puts Messager.output("Welcome to MASTERMIND")
     puts Messager.menu
+
     @choice = CommandInterpreter.menu(gets.chomp)
 
     if @choice == 'p'
@@ -43,7 +44,13 @@ class Mastermind
       end
     end
 
+    play_again
+
+  end
+
+  def play_again
     puts Messager.output("Do you want to (p)lay again or (q)uit? ")
+
     choice = CommandInterpreter.menu(gets.chomp)
     if choice == 'p'
       play
@@ -54,9 +61,6 @@ class Mastermind
   end
 
 end
-
-
-
 
 new_game = Mastermind.new
 

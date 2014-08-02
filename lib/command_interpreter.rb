@@ -11,6 +11,7 @@ module CommandInterpreter
     elsif guess.size > 4
       return "invalid guess"
     else
+      #what to use here besides .each
       guess.downcase.split(//).each do |letter|
         if valid_letters.include?(letter)
           letter
