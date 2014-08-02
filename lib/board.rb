@@ -57,7 +57,7 @@ class Board
       @win_check = true
     else
       @guess_count += 1
-      puts colors
+      #puts colors
       puts Messager.output("'#{guess.join.upcase}' has #{count} of the correct elements with #{@check.count(true)} in the correct positions.")
     end
 
