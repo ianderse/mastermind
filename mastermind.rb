@@ -32,7 +32,7 @@ class Mastermind
     while !board.win_check
       puts Messager.output("What's your guess? ")
       g_choice = CommandInterpreter.guess(gets.chomp)
-      if g_choice == 'q' || g_choice == 'quit'
+      if g_choice == 'q'
         puts Messager.goodbye
         exit
       elsif g_choice == "invalid guess"
