@@ -1,1 +1,1 @@
-ruby mastermind.rb
+ruby lib/mastermind.rb

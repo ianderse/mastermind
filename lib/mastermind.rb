@@ -1,5 +1,5 @@
-require_relative 'lib/messager'
-require_relative 'lib/command_interpreter'
+require_relative 'messager'
+require_relative 'command_interpreter'
 
 class Mastermind
   def initialize
