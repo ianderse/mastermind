@@ -16,6 +16,7 @@ class Mastermind
       play
     elsif @choice == 'i'
       puts Messager.instructions
+      menu
     else
       puts Messager.goodbye
       exit

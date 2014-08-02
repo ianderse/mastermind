@@ -7,8 +7,7 @@ class Board
 
   attr_reader :board, :win_check
 
-  def initialize(requested_size=4, peg= nil)
-    peg ||= randomized_peg
+  def initialize(requested_size=4)
 
     @start_time = Time.now
 
@@ -18,21 +17,17 @@ class Board
 
     @win_check = false
 
-    create_board(requested_size, peg)
+    create_board(requested_size)
   end
 
-  def create_board(size, peg)
+  def create_board(size)
     size.times do
-      @board << Peg.new(randomized_peg)
+      @board << Peg.new
     end
   end
 
   def size
     @board.size
-  end
-
-  def randomized_peg
-    ['r', 'y', 'b', 'g'].sample
   end
 
   def colors

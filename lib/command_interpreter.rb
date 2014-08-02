@@ -24,6 +24,10 @@ module CommandInterpreter
   def self.menu(choice)
     if choice == 'p' || choice == 'play'
       'p'
+    elsif choice == 'i' || choice == 'instructions'
+      'i'
+    elsif choice == 'q' || choice == 'quit'
+      'q'
     end
   end
 end
