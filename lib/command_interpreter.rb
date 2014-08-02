@@ -5,9 +5,9 @@ module CommandInterpreter
 
   def self.guess(guess)
 
-    if guess == 'q' || guess == 'quit'
+    if quit?(guess)
       'q'
-    elsif guess.size > 4 || guess.size < 4  
+    elsif guess.size > 4 || guess.size < 4
       return "invalid guess"
     else
       split_guess(guess)
@@ -33,8 +33,12 @@ module CommandInterpreter
       'p'
     elsif choice == 'i' || choice == 'instructions'
       'i'
-    elsif choice == 'q' || choice == 'quit'
+    elsif self.quit?(choice)
       'q'
     end
+  end
+
+  def self.quit?(input)
+    input == 'q' || input == 'quit'
   end
 end
