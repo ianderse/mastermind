@@ -4,6 +4,7 @@ require_relative 'board'
 module CommandInterpreter
 
   def self.guess(guess)
+    #refactoring to do here?
     valid_letters = 'rgby'
 
     if guess == 'q' || guess == 'quit'

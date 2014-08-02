@@ -1,4 +1,3 @@
-gem 'colorize'
 require_relative 'lib/messager'
 require_relative 'lib/command_interpreter'
 
@@ -8,7 +7,7 @@ class Mastermind
   end
 
   def menu
-    puts Messager.output("Welcome to MASTERMIND")
+    puts Messager.welcome
     puts Messager.menu
 
     @choice = CommandInterpreter.menu(gets.chomp)
@@ -28,8 +27,7 @@ class Mastermind
   def play
     board = Board.new
 
-    puts Messager.output("I have generated a beginner sequence with four elements made up of:")
-    puts Messager.output("(r)ed, (g)reen, (b)lue, and (y)ellow. Use (q)uit at any time to end the game.")
+    puts Messager.play
 
     while board.win_check == false
       puts Messager.output("What's your guess? ")
