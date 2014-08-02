@@ -29,7 +29,7 @@ class Mastermind
 
     puts Messager.play
 
-    while board.win_check == false
+    while !board.win_check
       puts Messager.output("What's your guess? ")
       g_choice = CommandInterpreter.guess(gets.chomp)
       if g_choice == 'q' || g_choice == 'quit'
