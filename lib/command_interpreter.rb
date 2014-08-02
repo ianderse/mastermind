@@ -7,7 +7,7 @@ module CommandInterpreter
 
     if guess == 'q' || guess == 'quit'
       'q'
-    elsif guess.size > 4 || guess.size < 4
+    elsif guess.size > 4 || guess.size < 4  
       return "invalid guess"
     else
       split_guess(guess)
