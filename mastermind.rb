@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'bundler/setup'
+
 require_relative 'lib/messager'
 require_relative 'lib/command_interpreter'
 
