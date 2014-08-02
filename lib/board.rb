@@ -5,16 +5,13 @@ class Board
 
   include Messager
 
-  attr_reader :board, :win_check
+  attr_reader :board, :win_check #, :guess_count #only necessary for tests
 
   def initialize(requested_size=4)
 
     @start_time = Time.now
-
     @board = []
-
     @guess_count = 0
-
     @win_check = false
 
     create_board(requested_size)
@@ -48,7 +45,7 @@ class Board
     else
       @guess_count += 1
       #puts colors #debug: show secret sequence
-      puts Messager.output("'#{guess.join.upcase}' has #{compare} of the correct elements with #{check.count(true)} in the correct positions.")
+      puts Messager.output("'#{guess.join.upcase}' has #{compare} of the correct elements with #{check.count(true)} in the correct positions.\nYou've taken #{@guess_count} guesses.")
     end
 
   end
