@@ -42,7 +42,7 @@ class Board
       puts Messager.output("Congratulations! You guessed the sequence '#{colors.join.upcase}' in #{@guess_count} guesses over #{print_time_minutes} minutes and #{print_time_seconds} seconds").colorize(:cyan)
       @win_check = true
     else
-      puts colors #debug: show secret sequence
+      #puts colors #debug: show secret sequence
       puts Messager.output("'#{guess.join.upcase}' has #{compare} of the correct elements with #{check.count(true)} in the correct positions.\nYou've taken #{@guess_count} guesses.").colorize(:cyan)
     end
 
