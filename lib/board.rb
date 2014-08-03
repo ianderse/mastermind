@@ -7,19 +7,20 @@ class Board
 
   attr_reader :board, :win_check #, :guess_count #only necessary for tests
 
-  def initialize(requested_size=4)
-
+  def initialize(window, requested_size=4)
+    @window = window
     @start_time = Time.now
     @board = []
     @guess_count = 0
     @win_check = false
+    @image = Gosu::Image.new(window, '../data/grid.png', false)
 
     create_board(requested_size)
   end
 
   def create_board(size)
     size.times do
-      @board << Peg.new
+      @board << Peg.new(@window)
     end
   end
 
@@ -71,7 +72,15 @@ class Board
 
   def print_time_seconds
     #fix if start times seconds are great than finish time seconds
-    @finish_time.strftime("%S").to_i - @start_time.strftime("%S").to_i
+    time = @finish_time.strftime("%S").to_i - @start_time.strftime("%S").to_i
+    if time < 0
+      time *= -1
+    end
+
+  end
+
+  def draw
+    @image.draw(0, 0, 0)
   end
 
 end

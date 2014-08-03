@@ -6,7 +6,8 @@ require_relative 'command_interpreter'
 #colorize
 
 class Mastermind
-  def initialize
+  def initialize(window)
+    @window = window
     system "clear"
     menu
   end
@@ -30,7 +31,7 @@ class Mastermind
   end
 
   def play
-    board = Board.new
+    board = Board.new(@window)
 
     puts Messager.play
 
@@ -64,7 +65,3 @@ class Mastermind
   end
 
 end
-
-new_game = Mastermind.new
-
-new_game
