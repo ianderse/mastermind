@@ -7,12 +7,26 @@ module CommandInterpreter
 
     if quit?(guess)
       'q'
-    elsif guess.size > 4 || guess.size < 4
-      return "invalid guess"
     else
       split_guess(guess)
     end
 
+  end
+
+  def self.difficulty(choice)
+    if choice == 'b' || choice == 'beginner'
+      'b'
+    elsif choice == 'i' || choice == 'intermediate'
+      'i'
+    elsif choice == 'a' || choice == 'advanced'
+      'a'
+    else
+      'invalid choice'
+    end
+  end
+
+  def self.invalid
+    'invalid choice'
   end
 
   def self.split_guess(guess)

@@ -70,7 +70,7 @@ class Board
   end
 
   def print_time_seconds
-    #fix if start times seconds are great than finish time seconds
+    #fix if finsh time seconds are great than start time seconds
     @finish_time.strftime("%S").to_i - @start_time.strftime("%S").to_i
   end
 
