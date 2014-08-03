@@ -1,5 +1,6 @@
 require 'gosu'
 require_relative 'board'
+require_relative 'messager'
 
 class GameWindow < Gosu::Window
 
@@ -8,6 +9,7 @@ class GameWindow < Gosu::Window
     self.caption = "Mastermind"
 
     @new_game = Board.new(self)
+
   end
 
   def update
@@ -16,11 +18,16 @@ class GameWindow < Gosu::Window
 
   def draw
     @new_game.draw
-
+    Messager.welcome(self)
   end
 
   def button_up(key)
-    self.close if key == Gosu::KbEscape
+
+    case key
+    when Gosu::Button::KbEscape
+      self.close
+    #when Gosu::Button::
+    end
   end
 
 end

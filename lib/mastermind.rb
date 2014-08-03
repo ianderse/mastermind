@@ -13,7 +13,7 @@ class Mastermind
   end
 
   def menu
-    puts Messager.welcome
+    Messager.welcome(@window)
     puts Messager.menu
 
     @choice = CommandInterpreter.menu(gets.chomp)

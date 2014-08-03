@@ -21,7 +21,6 @@ class Board
   def create_board(size)
     size.times do
       @board << Peg.new(@window)
-      @pegs = @board
     end
   end
 
@@ -37,6 +36,11 @@ class Board
 
   def check_guess(guess)
     @guess = guess
+
+    guess.each do |letter|
+      @pegs << Peg.new(@window, letter)
+    end
+
     @guess_count += 1
 
     if win?
@@ -86,16 +90,16 @@ class Board
     x = 0
 
     @image.draw(0, 0, 0)
-    @pegs.each do |peg|
-      if count == 4
-        y += 32
-      end
-      peg.x = x
-      peg.y = y
-      peg.draw
-      x += 32
-      count += 1
-    end
+    # @pegs.each do |peg|
+    #   if count == 4
+    #     y += 32
+    #   end
+    #   peg.x = x
+    #   peg.y = y
+    #   peg.draw
+    #   x += 32
+    #   count += 1
+    # end
   end
 
 end

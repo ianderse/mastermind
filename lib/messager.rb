@@ -4,12 +4,17 @@ require 'colorize'
 
 module Messager
 
+
+  @white = Gosu::Color.new(100, 255, 255, 255)
+
   def self.output(string)
     string
   end
 
-  def self.welcome
-    "Welcome to MASTERMIND".colorize(:light_green)
+  def self.welcome(window)
+    @window = window
+    @font = Gosu::Font.new(@window, Gosu::default_font_name, 20)
+    @font.draw("Welcome to MASTERMIND", 0, 0, 3, 5.0, 5.0, @white)
   end
 
   def self.instructions
