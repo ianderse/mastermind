@@ -46,7 +46,7 @@ class Board
       FileHandler.save_to_file(set_win_hash)
       @win_check = true
     else
-      puts colors #debug: show secret sequence
+      #puts colors #debug: show secret sequence
       puts Messager.output("'#{guess.join.upcase}' has #{compare} of the correct elements with #{check.count(true)} in the correct positions.\nYou've taken #{@guess_count} guesses.").colorize(:cyan)
     end
 
