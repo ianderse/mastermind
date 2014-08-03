@@ -54,11 +54,13 @@ class Board
 
   def set_win_hash
     {
-      "name" => @name,
-      "sequence" => colors.join.upcase,
-      "guesses" => @guess_count,
-      "minutes" => print_time_minutes,
-      "seconds" => print_time_seconds
+      "high_score" => {
+        "name" => @name,
+        "sequence" => colors.join.upcase,
+        "guesses" => @guess_count,
+        "minutes" => print_time_minutes,
+        "seconds" => print_time_seconds
+      }
     }
   end
 
