@@ -1,5 +1,6 @@
 require_relative 'peg'
 require_relative 'messager'
+require_relative 'file_handler'
 
 class Board
 
@@ -38,14 +39,27 @@ class Board
 
     if win?
       @finish_time = Time.now
-
+      #refactor these outputs, pass the correct data to messager method instead
       puts Messager.output("Congratulations! You guessed the sequence '#{colors.join.upcase}' in #{@guess_count} guesses over #{print_time_minutes} minutes and #{print_time_seconds} seconds").colorize(:cyan)
+      puts Messager.output("What is your name? ")
+      @name = gets.chomp
+      FileHandler.save_to_file(set_win_hash)
       @win_check = true
     else
       puts colors #debug: show secret sequence
       puts Messager.output("'#{guess.join.upcase}' has #{compare} of the correct elements with #{check.count(true)} in the correct positions.\nYou've taken #{@guess_count} guesses.").colorize(:cyan)
     end
 
+  end
+
+  def set_win_hash
+    {
+      "name" => @name,
+      "sequence" => colors.join.upcase,
+      "guesses" => @guess_count,
+      "minutes" => print_time_minutes,
+      "seconds" => print_time_seconds
+    }
   end
 
   def compare
