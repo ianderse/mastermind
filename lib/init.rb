@@ -17,7 +17,6 @@ class GameWindow < Gosu::Window
   def draw
     @new_game.draw
 
-
   end
 
   def button_up(key)

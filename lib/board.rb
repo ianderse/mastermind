@@ -13,7 +13,7 @@ class Board
     @board = []
     @guess_count = 0
     @win_check = false
-    @image = Gosu::Image.new(window, '../data/grid.png', false)
+    @image = Gosu::Image.new(window, './data/grid.png', false)
 
     create_board(requested_size)
   end
@@ -21,6 +21,7 @@ class Board
   def create_board(size)
     size.times do
       @board << Peg.new(@window)
+      @pegs = @board
     end
   end
 
@@ -80,7 +81,21 @@ class Board
   end
 
   def draw
+    count = 0
+    y = 0
+    x = 0
+
     @image.draw(0, 0, 0)
+    @pegs.each do |peg|
+      if count == 4
+        y += 32
+      end
+      peg.x = x
+      peg.y = y
+      peg.draw
+      x += 32
+      count += 1
+    end
   end
 
 end
