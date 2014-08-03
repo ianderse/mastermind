@@ -70,7 +70,12 @@ class Board
 
   def print_time_seconds
     #fix if finsh time seconds are great than start time seconds
-    @finish_time.strftime("%S").to_i - @start_time.strftime("%S").to_i
+    printed_time = @finish_time.strftime("%S").to_i - @start_time.strftime("%S").to_i
+    if printed_time < 0
+      printed_time *= -1
+    else
+      printed_time
+    end
   end
 
 end
