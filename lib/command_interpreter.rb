@@ -3,12 +3,12 @@ require_relative 'board'
 
 module CommandInterpreter
 
-  def self.guess(guess)
+  def self.guess(guess, num_pegs = 4)
 
     if quit?(guess)
       'q'
     else
-      split_guess(guess)
+      split_guess(guess, num_pegs)
     end
 
   end
@@ -25,12 +25,14 @@ module CommandInterpreter
     end
   end
 
-  def self.invalid
-    'invalid choice'
-  end
-
-  def self.split_guess(guess)
-    valid_letters = 'rgby'
+  def self.split_guess(guess, num_pegs)
+    if num_pegs == 4
+      valid_letters = 'rgby'
+    elsif num_pegs == 6
+      valid_letters = 'rgbyc'
+    elsif num_pegs == 8
+      valid_letters = 'rgbycp'
+    end
 
     guess.downcase.split(//).find_all do |letter|
       if valid_letters.include?(letter)

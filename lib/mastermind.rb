@@ -53,13 +53,13 @@ class Mastermind
   end
 
   def play(difficulty_level, num_pegs)
-    board = Board.new
+    board = Board.new(num_pegs)
 
     puts Messager.play(difficulty_level, num_pegs)
 
     while !board.win_check
       puts Messager.output("What's your guess? ")
-      g_choice = CommandInterpreter.guess(gets.chomp)
+      g_choice = CommandInterpreter.guess(gets.chomp, num_pegs)
       if g_choice == 'q'
         puts Messager.goodbye
         exit
@@ -79,7 +79,7 @@ class Mastermind
 
     choice = CommandInterpreter.menu(gets.chomp)
     if choice == 'p'
-      play
+      menu
     else
       puts Messager.goodbye
       exit
