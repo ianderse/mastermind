@@ -1,1 +1,2 @@
-ruby lib/mastermind.rb
+#!/usr/bin/env ruby
+require_relative "lib/mastermind"
