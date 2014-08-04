@@ -14,12 +14,14 @@ module CommandInterpreter
   end
 
   def self.difficulty(choice)
-    if choice == 'b' || choice == 'beginner'
+    if choice == 'b' || choice == 'beginner' || choice == 'B'
       'b'
-    elsif choice == 'i' || choice == 'intermediate'
+    elsif choice == 'i' || choice == 'intermediate' || choice == 'I'
       'i'
-    elsif choice == 'a' || choice == 'advanced'
+    elsif choice == 'a' || choice == 'advanced' || choice == 'A'
       'a'
+    elsif quit?(choice)
+      'q'
     else
       'invalid choice'
     end
@@ -45,9 +47,9 @@ module CommandInterpreter
   end
 
   def self.menu(choice)
-    if choice == 'p' || choice == 'play'
+    if choice == 'p' || choice == 'play' || choice == 'P'
       'p'
-    elsif choice == 'i' || choice == 'instructions'
+    elsif choice == 'i' || choice == 'instructions' || choice == 'I'
       'i'
     elsif self.quit?(choice)
       'q'
@@ -55,6 +57,6 @@ module CommandInterpreter
   end
 
   def self.quit?(input)
-    input == 'q' || input == 'quit'
+    input == 'q' || input == 'quit' || input == 'Q'
   end
 end

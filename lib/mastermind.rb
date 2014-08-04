@@ -24,8 +24,7 @@ class Mastermind
       puts Messager.instructions
       menu
     elsif choice == 'q'
-      puts Messager.goodbye
-      exit
+      quit
     else
       puts Messager.invalid
     end
@@ -38,6 +37,8 @@ class Mastermind
 
     if choice == 'invalid choice'
       puts Messager.invalid
+    elsif choice == 'q'
+      quit
     elsif choice == 'b'
       difficulty_level = 'begginer'
       num_pegs = 4
@@ -62,8 +63,7 @@ class Mastermind
       puts Messager.output("What's your guess? ")
       g_choice = CommandInterpreter.guess(gets.chomp, num_pegs)
       if g_choice == 'q'
-        puts Messager.goodbye
-        exit
+        quit
       elsif g_choice.size > board.size || g_choice.size < board.size
         puts Messager.invalid
       else
@@ -82,9 +82,13 @@ class Mastermind
     if choice == 'p'
       menu
     else
-      puts Messager.goodbye
-      exit
+      quit
     end
+  end
+
+  def quit
+    puts Messager.goodbye
+    exit
   end
 
 end
