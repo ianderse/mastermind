@@ -1,2 +1,48 @@
 #!/usr/bin/env ruby
 require_relative "lib/mastermind"
+
+Mastermind.new
+
+
+
+# can't instantiate Mastermind without playing the game
+# talks directly to $stdout (puts statements)
+# talks directly to $stdin (gets statements)
+
+# to work with gosu
+#   2 high-level classes
+#   * stream based ($stdin on a console)
+#     drives the progression forward
+#     (e.g. the while loop in play)
+#   * event based
+#     responds to the events that drive the progression
+#     when I receive the event, then do that thing, and only go that far
+# the mindset that I've found has the greatest probability
+# of allowing both of the above, from the beginning:
+#   distinguish the library from the binary
+#   - the library needs to be usable from *any* binary
+#     in *any* way, doesn't atually *do* anything
+#   - the binary sits between the particular style of use
+#     (e.g. ConsoleBinary, GosuBinary), uses the tools that
+#     the library provides to present it for that medium
+
+# important high-level thought
+#   in 3 words: avoid side effects
+#   e.g. I can't get the player's menu choice without playing the game
+#        would be better as something like:
+#
+#        def run_game
+#          choice = get_menu_option
+#          if choice == 'q'
+#            return 0 # <-- no `exit` in the middle of our code
+#          end
+#          difficult = get_difficulty # <-- menu doesn't go setting difficulty, its job is done
+#          ...
+#        end
+#
+#        # -- which would be called by ./mastermind --
+#        #!/usr/bin/env ruby
+#        require_relative 'lib/mastermind'
+#        mastermind  = Mastermind.new
+#        exit_status = mastermind.run_game
+#        exit exit_status
