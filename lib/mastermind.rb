@@ -9,7 +9,6 @@ require_relative 'command_interpreter'
 class Mastermind
   def initialize
     system "clear"
-    menu
   end
 
   def menu
