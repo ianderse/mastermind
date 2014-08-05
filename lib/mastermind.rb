@@ -59,7 +59,7 @@ class Mastermind
     puts Messager.play(difficulty_level, num_pegs)
 
     while !board.win_check
-      puts Messager.output("What's your guess? ")
+      print Messager.output("What's your guess? ")
       g_choice = CommandInterpreter.guess(gets.strip, num_pegs)
       if g_choice == 'q'
         quit
@@ -75,7 +75,7 @@ class Mastermind
   end
 
   def play_again
-    puts Messager.output("Do you want to (p)lay again or (q)uit? ")
+    print Messager.output("Do you want to (p)lay again or (q)uit? ")
 
     choice = CommandInterpreter.menu(gets.strip)
     if choice == 'p'
