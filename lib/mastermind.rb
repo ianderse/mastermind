@@ -15,7 +15,7 @@ class Mastermind
     puts Messager.welcome
     puts Messager.menu
 
-    choice = CommandInterpreter.menu(gets.chomp)
+    choice = CommandInterpreter.menu(gets.strip)
 
     if choice == 'p'
       difficulty
@@ -32,7 +32,7 @@ class Mastermind
 
   def difficulty
     puts Messager.difficulty
-    choice = CommandInterpreter.difficulty(gets.chomp)
+    choice = CommandInterpreter.difficulty(gets.strip)
 
     if choice == 'invalid choice'
       puts Messager.invalid
@@ -60,7 +60,7 @@ class Mastermind
 
     while !board.win_check
       puts Messager.output("What's your guess? ")
-      g_choice = CommandInterpreter.guess(gets.chomp, num_pegs)
+      g_choice = CommandInterpreter.guess(gets.strip, num_pegs)
       if g_choice == 'q'
         quit
       elsif g_choice.size > board.size || g_choice.size < board.size
@@ -77,7 +77,7 @@ class Mastermind
   def play_again
     puts Messager.output("Do you want to (p)lay again or (q)uit? ")
 
-    choice = CommandInterpreter.menu(gets.chomp)
+    choice = CommandInterpreter.menu(gets.strip)
     if choice == 'p'
       menu
     else
